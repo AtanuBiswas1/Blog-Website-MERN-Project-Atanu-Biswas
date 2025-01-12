@@ -33,10 +33,10 @@ A full-stack blog application built with the MERN (MongoDB, Express, React, Node
 ## **Screenshots**
 
 ### Home Page
-![Home Page](Images\1.jpg)
+![Home Page](Images/1.jpg)
 
 ### Login Page
-![Login Page](I/mages/login.jpg)
+![Login Page](Images/login.jpg)
 ![Login Page for validation](Images/login1.jpg)
 ![Login Page for validation Error](Images/login2.jpg)
 
@@ -45,8 +45,8 @@ A full-stack blog application built with the MERN (MongoDB, Express, React, Node
 ![Registration Page](Images/register2.jpg)
 
 ### =============================
-![Home](Image/Home2.jpg)
-![Home user](Image/userpage1.jpg)
+![Home](Images/Home2.jpg)
+![Home user](Images/userpage1.jpg)
 
 ### Admin Dashboard
 ![Admin Dashboard](Images/Admin1.jpg)
