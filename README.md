@@ -36,24 +36,24 @@ A full-stack blog application built with the MERN (MongoDB, Express, React, Node
 ![Home Page](Images\1.jpg)
 
 ### Login Page
-![Login Page](Images\login.jpg)
-![Login Page for validation](Images\login1.jpg)
-![Login Page for validation Error](Images\login2.jpg)
+![Login Page](I/mages/login.jpg)
+![Login Page for validation](Images/login1.jpg)
+![Login Page for validation Error](Images/login2.jpg)
 
 ### Registration Page
-![Registration Page](Images\register1.jpg)
-![Registration Page](Images\register2.jpg)
+![Registration Page](Images/register1.jpg)
+![Registration Page](Images/register2.jpg)
 
 ### =============================
-![Home](Image\Home2.jpg)
-![Home user](Image\userpage1.jpg)
+![Home](Image/Home2.jpg)
+![Home user](Image/userpage1.jpg)
 
 ### Admin Dashboard
-![Admin Dashboard](Images\Admin1.jpg)
-![Admin Dashbord](Images\Admin2.jpg)
+![Admin Dashboard](Images/Admin1.jpg)
+![Admin Dashbord](Images/Admin2.jpg)
 
 ### Open Blog in new page
-![Big blog page](Images\bigpage1.jpg)
+![Big blog page](Images/bigpage1.jpg)
 
 <!-- Replace the above URLs with actual links to your screenshots hosted on platforms like [Imgur](https://imgur.com/) or GitHub itself. -->
 
