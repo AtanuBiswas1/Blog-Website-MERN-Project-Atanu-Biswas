@@ -65,7 +65,7 @@ A full-stack blog application built with the MERN (MongoDB, Express, React, Node
 
 1. **Navigate to the `backend` folder**:
     ```bash
-    cd backend
+    cd Backend
     ```
 
 2. **Install dependencies**:
@@ -76,15 +76,18 @@ A full-stack blog application built with the MERN (MongoDB, Express, React, Node
 3. **Create a `.env` file**:
     In the root of the `backend` folder, create a `.env` file with the following content:
     ```plaintext
-    PORT=8000
     MONGO_URI=your_mongo_db_uri
-    JWT_SECRET=your_jwt_secret
+    JWT_SECRET=BlogForInternship12345678
+    PORT=8000
+    ACCESS_TOKEN_EXPIRY=1d
     ```
     Replace `your_mongo_db_uri` and `your_jwt_secret` with the actual MongoDB URI and a secret key for JWT.
 
 4. **Start the server**:
     ```bash
-    npm start
+    npm index.js
+    or 
+    "dev":"nodemon index.js"
     ```
 
 ---
@@ -111,20 +114,21 @@ A full-stack blog application built with the MERN (MongoDB, Express, React, Node
 ## **API Endpoints**
 
 ### **User Routes**
+API ='http://localhost:8000/api'
 
 | Method | Endpoint              | Description               |
 |--------|-----------------------|---------------------------|
-| POST   | `/api/users`          | Register a new user       |
-| POST   | `/api/users/login`    | Log in a user             |
+| POST   | `${API}/auth/register`| Register a new user       |
+| POST   | `${API}/auth/login`   | Log in a user             |
 
 ### **Blog Routes**
 
 | Method | Endpoint              | Description               |
 |--------|-----------------------|---------------------------|
-| GET    | `/api/blogs`          | Fetch all blogs           |
-| POST   | `/api/blogs`          | Create a new blog (Admin) |
-| PUT    | `/api/blogs/:id`      | Update a blog (Admin)     |
-| DELETE | `/api/blogs/:id`      | Delete a blog (Admin)     |
+| GET    | `${API}/blogs`          | Fetch all blogs           |
+| POST   | `${API}/blogs`          | Create a new blog (Admin) |
+| PUT    | `${API}/blogs/:id`      | Update a blog (Admin)     |
+| DELETE | `${API}/blogs/:id`      | Delete a blog (Admin)     |
 
 ---
 
@@ -171,6 +175,11 @@ A full-stack blog application built with the MERN (MongoDB, Express, React, Node
 5. Open a pull request.
 
 ---
+
+## **Clone the repository**
+```bash
+    https://github.com/AtanuBiswas1/Blog-Website-MERN-Project-Atanu-Biswas.git
+```
 
 ## **License**
 
