@@ -1,0 +1,95 @@
+MERN Project Architecture and Flow
+1. Overview
+This MERN project is a Blog Management System that allows users to:
+
+View blog posts publicly.
+Register and log in.
+For authenticated users with admin roles: create, update, and delete blog posts.
+The application is divided into two main sections:
+
+Frontend: Built with React.js and Redux Toolkit for state management, and styled using Tailwind CSS.
+Backend: Built with Node.js, Express.js, and MongoDB for handling business logic and data persistence.
+2. Architecture Overview
+Frontend Architecture
+The frontend uses React for building a dynamic and responsive user interface (UI). It is responsible for handling the interactions with the user, sending requests to the backend, and displaying the response in a user-friendly format.
+
+React Components:
+
+The application is organized into multiple components like Navbar, Home, Login, Register, AdminDashboard, etc.
+Components are responsible for displaying UI and handling interactions.
+The Navbar component dynamically changes based on the user's authentication status and role (user/admin).
+Routing:
+
+React Router is used for navigation between different views (Home, Login, Register, Admin Dashboard).
+Protected Routes: Only authenticated users can access certain routes like the admin dashboard using a custom ProtectedRoute and AdminRoute components.
+State Management:
+
+Redux Toolkit is used to manage the global state, including authentication (user login details, token storage) and blog posts.
+The authSlice manages authentication state, and the blogSlice stores the list of blogs and performs CRUD operations.
+Backend Architecture
+The backend is built with Node.js and Express.js, following the MVC (Model-View-Controller) pattern for clean and organized code.
+
+Express.js Routes:
+
+The backend exposes RESTful API endpoints for handling various actions like user authentication (/api/users), and blog management (/api/blogs).
+There are protected routes for admin users (e.g., creating, updating, and deleting blogs), and these routes use middleware to ensure proper authentication and authorization.
+Middleware:
+
+protect Middleware: Ensures that routes are only accessible to authenticated users by verifying the JWT token sent in the request headers.
+admin Middleware: Checks if the logged-in user has an admin role and ensures only admins can create, update, or delete blogs.
+MongoDB:
+
+MongoDB is used to store users and blog data.
+Blog Schema: Contains fields like title, content, author, and timestamps.
+User Schema: Stores user details such as username, email, password, and role (either user or admin).
+3. Flow of the Application
+1. User Authentication and Authorization
+Login Flow:
+
+The user logs in by submitting their credentials (email and password) through the Login form.
+The frontend sends a POST request to the backend’s /api/users/login endpoint.
+The backend authenticates the user, generates a JWT token, and sends it back to the frontend.
+The frontend stores the JWT token in localStorage and updates the state via Redux.
+The user is then redirected to the homepage or dashboard based on their role (user/admin).
+Protected Routes:
+
+The ProtectedRoute component is used to wrap routes that require authentication (e.g., the blog viewing page).
+The AdminRoute component ensures only admin users can access the admin dashboard.
+2. Blog CRUD Operations (Admin Only)
+Create Blog:
+
+Admins can create a new blog by filling out the form in the AdminDashboard.
+A POST request is sent to the /api/blogs endpoint, with the blog details in the request body.
+The backend verifies the user’s admin role using the admin middleware and then creates the blog in the MongoDB database.
+Update Blog:
+
+Admins can edit existing blog posts in the AdminDashboard by clicking the "Update" button.
+A PUT request is sent to the /api/blogs/:id endpoint, where the :id is the blog’s unique identifier.
+The backend checks if the user is authorized and updates the blog in the database.
+Delete Blog:
+
+Admins can delete a blog post by clicking the "Delete" button next to the post.
+A DELETE request is sent to the /api/blogs/:id endpoint.
+The backend verifies that the user is authorized and deletes the blog from MongoDB using the deleteOne() method.
+3. Frontend & Backend Communication
+Frontend Requests:
+The frontend sends HTTP requests (via Axios) to the backend for authentication, blog management, etc.
+The requests contain the JWT token in the Authorization header for protected routes.
+The backend responds with the data or status based on the request.
+The frontend then updates the Redux state based on the response (e.g., storing the user details or updating the list of blogs).
+4. State Management with Redux
+Auth State:
+
+The authSlice stores the authentication details, including the user's login status, JWT token, and role.
+The loginUser action is dispatched when a user logs in successfully, storing the token and user information in the Redux state.
+Blog State:
+
+The blogSlice manages the state for the list of blogs.
+The actions fetchBlogs, createBlog, updateBlog, and deleteBlog are used to fetch, create, update, and delete blogs in the state.
+4. Flow Summary
+A user visits the application.
+If the user is logged in, they can view the blog posts.
+If the user is an admin, they can access the admin dashboard, where they can create, update, and delete blogs.
+The frontend sends API requests to the backend for blog management and authentication.
+The backend validates requests using middleware and performs the appropriate database operations in MongoDB.
+The frontend updates the UI based on the response (e.g., displaying blogs or showing success/error messages).
